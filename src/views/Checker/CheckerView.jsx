@@ -32,6 +32,9 @@ import CardBody from 'components/Card/CardBody.jsx';
 import { cardTitle } from 'assets/jss/material-dashboard-pro-react.jsx';
 
 const style = {
+  pictureSrc: {
+      maxWidth: '140px'
+  },
   customCardContentClass: {
     paddingLeft: '0',
     paddingRight: '0'
@@ -86,7 +89,7 @@ class CheckerView extends React.Component {
           <GridItem xs={12} sm={12} md={2}>
             <img
               src={this.state.imagePreviewUrl}
-              className="picture-src"
+              className={classes.pictureSrc}
               alt="..."
             />
           </GridItem>
@@ -126,24 +129,12 @@ class CheckerView extends React.Component {
               <CardBody>
                 <Table
                   tableHeaderColor="primary"
-                  tableHead={['Name', 'Country', 'City', 'Salary']}
+                  tableHead={['Name', 'Data']}
                   tableData={[
-                    ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-                    ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-                    ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-                    [
-                      'Philip Chaney',
-                      'Korea, South',
-                      'Overland Park',
-                      '$38,735'
-                    ],
-                    [
-                      'Doris Greene',
-                      'Malawi',
-                      'Feldkirchen in Kärnten',
-                      '$63,542'
-                    ],
-                    ['Mason Porter', 'Chile', 'Gloucester', '$78,615']
+                    ['Estatura', '1.20mts'],
+                    ['Peso', '32 kgs'],
+                    ['Grupo sanguineo', 'O+ '],
+                    ['Antecedentes médicos', 'Anemia']
                   ]}
                   coloredColls={[3]}
                   colorsColls={['primary']}
@@ -163,24 +154,12 @@ class CheckerView extends React.Component {
               <CardBody>
                 <Table
                   tableHeaderColor="primary"
-                  tableHead={['Name', 'Country', 'City', 'Salary']}
+                  tableHead={['Name', 'Data']}
                   tableData={[
-                    ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-                    ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-                    ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-                    [
-                      'Philip Chaney',
-                      'Korea, South',
-                      'Overland Park',
-                      '$38,735'
-                    ],
-                    [
-                      'Doris Greene',
-                      'Malawi',
-                      'Feldkirchen in Kärnten',
-                      '$63,542'
-                    ],
-                    ['Mason Porter', 'Chile', 'Gloucester', '$78,615']
+                    ['Ocupación', 'Carpintero'],
+                    ['Religión', 'Católica'],
+                    ['Usos y costumbres', 'Tradiciones memorizadas y transmitidas desde generaciones ancestrales, originales, sin necesidad de un sistema de escritura; es decir, son actitudes. '],
+                    ['Conocido por', 'Fabis']
                   ]}
                   coloredColls={[3]}
                   colorsColls={['primary']}
