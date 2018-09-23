@@ -1,1 +1,7 @@
-# Hola mundo...
+# Install
+
+```
+$ yarn install
+
+$ yarn start
+```

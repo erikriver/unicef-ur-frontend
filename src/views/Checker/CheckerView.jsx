@@ -16,24 +16,31 @@ import FormControl from "@material-ui/core/FormControl";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import PictureUpload from "components/CustomUpload/PictureUpload.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import defaultImage from "assets/img/default-avatar.png";
 
+// material-ui icons
+import Assignment from "@material-ui/icons/Assignment";
+
+// core components
+import Table from "components/Table/Table.jsx";
+import Card from "components/Card/Card.jsx";
+import CardHeader from "components/Card/CardHeader.jsx";
+import CardIcon from "components/Card/CardIcon.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+
+import { cardTitle } from "assets/jss/material-dashboard-pro-react.jsx";
+
+
 const style = {
-  separatorSection: {
-    marginBottom: "30px"
+  customCardContentClass: {
+    paddingLeft: "0",
+    paddingRight: "0"
   },
-  infoText: {
-    fontWeight: "300",
-    margin: "10px 0 30px",
-    textAlign: "center"
-  },
-  inputAdornmentIcon: {
-    color: "#555"
-  },
-  inputAdornment: {
-    position: "relative"
+  cardIconTitle: {
+    ...cardTitle,
+    marginTop: "15px",
+    marginBottom: "0px"
   }
 };
 
@@ -74,68 +81,96 @@ class CheckerView extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12}>
-            <h4 className={classes.infoText}>
-              Verify identity
-            </h4>
-          </GridItem>
-          <GridItem xs={6} sm={6} >
-            <CustomInput
-              success={this.state.firstnameState === "success"}
-              error={this.state.firstnameState === "error"}
-              labelText={
-                <span>
-                Code...
-              </span>
-              }
-              id="search"
-              formControlProps={{
-                fullWidth: true
-              }}
-              inputProps={{
-                onChange: event => this.change(event, "search", "length", 3),
-                endAdornment: (
-                  <InputAdornment
-                    position="end"
-                    className={classes.inputAdornment}
-                  >
-                    <Face className={classes.inputAdornmentIcon} />
-                  </InputAdornment>
-                )
-              }}
-            />
-          </GridItem>
-        </GridContainer>
-
         <div className={classes.separatorSection}/>
 
         <GridContainer justify="center">
-          <GridItem xs={12} sm={4}>
+          <GridItem xs={12} sm={12} md={2}>
             <img
               src={this.state.imagePreviewUrl}
               className="picture-src"
               alt="..."
             />
           </GridItem>
-          <GridItem xs={12} sm={6}>
-            <FormControl fullWidth className={classes.selectFormControl}>
-              <InputLabel className={classes.selectLabel}>
-                Full Name
-              </InputLabel>
-            </FormControl>
-            <FormControl fullWidth className={classes.selectFormControl}>
-              <InputLabel className={classes.selectLabel}>
-                Country
-              </InputLabel>
-            </FormControl>
-            <FormControl fullWidth className={classes.selectFormControl}>
-              <InputLabel className={classes.selectLabel}>
-                Sex
-              </InputLabel>
-            </FormControl>
+          <GridItem xs={12} sm={12} md={10}>
+            <Card>
+              <CardHeader color="rose" icon>
+                <CardIcon color="rose">
+                  <Assignment />
+                </CardIcon>
+                <h4 className={classes.cardIconTitle}>Simple Table</h4>
+              </CardHeader>
+              <CardBody>
+                <Table
+                  tableHeaderColor="primary"
+                  tableHead={["Name", "Data"]}
+                  tableData={[
+                    ["First Name", "Fatima"],
+                    ["Last Name", "Mazen"],
+                    ["Age", "8"],
+                    ["Country", "Syria"]
+                  ]}
+                  coloredColls={[3]}
+                  colorsColls={["primary"]}
+                />
+              </CardBody>
+            </Card>
           </GridItem>
-        </GridContainer>
+
+      <GridItem xs={12}>
+        <Card>
+          <CardHeader color="rose" icon>
+            <CardIcon color="rose">
+              <Assignment />
+            </CardIcon>
+            <h4 className={classes.cardIconTitle}>Medical records</h4>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["Name", "Country", "City", "Salary"]}
+              tableData={[
+                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
+                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
+                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
+                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
+                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
+                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
+              ]}
+              coloredColls={[3]}
+              colorsColls={["primary"]}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+
+            <GridItem xs={12}>
+        <Card>
+          <CardHeader color="rose" icon>
+            <CardIcon color="rose">
+              <Assignment />
+            </CardIcon>
+            <h4 className={classes.cardIconTitle}>Financial records</h4>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["Name", "Country", "City", "Salary"]}
+              tableData={[
+                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
+                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
+                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
+                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
+                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
+                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
+              ]}
+              coloredColls={[3]}
+              colorsColls={["primary"]}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+
+      </GridContainer>
       </div>
     );
   }

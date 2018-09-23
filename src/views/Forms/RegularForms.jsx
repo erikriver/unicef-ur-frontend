@@ -28,7 +28,7 @@ import CardBody from 'components/Card/CardBody.jsx';
 
 import regularFormsStyle from 'assets/jss/material-dashboard-pro-react/views/regularFormsStyle';
 
-class RegularForms extends React.Component {
+class MedicalForms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -917,4 +917,4 @@ class RegularForms extends React.Component {
   }
 }
 
-export default withStyles(regularFormsStyle)(RegularForms);
+export default withStyles(regularFormsStyle)(MedicalForms);
