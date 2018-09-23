@@ -9,6 +9,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import ApplicantsList from "../views/Applicants/ApplicantsList";
+import Wizard from "views/Forms/Wizard.jsx";
 
 const dashboardRoutes = [
   {
