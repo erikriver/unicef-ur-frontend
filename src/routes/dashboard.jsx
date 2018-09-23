@@ -7,8 +7,8 @@ import Notifications from "@material-ui/icons/Notifications";
 
 // core components/views
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import OrdersList from "views/Orders/OrdersList.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+import ApplicantsList from "../views/Applicants/ApplicantsList";
 
 const dashboardRoutes = [
   {
@@ -19,11 +19,11 @@ const dashboardRoutes = [
     component: DashboardPage
   },
   {
-    path: "/orders",
-    sidebarName: "Orders",
-    navbarName: "Orders",
+    path: "/applicants",
+    sidebarName: "Applicants",
+    navbarName: "Applicants",
     icon: LibraryBooks,
-    component: OrdersList
+    component: ApplicantsList
   },
   {
     path: "/notifications",
