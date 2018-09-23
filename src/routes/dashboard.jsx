@@ -50,9 +50,9 @@ const dashboardRoutes = [
     sidebarName: 'Registros',
     navbarName: 'Registros',
     icon: LibraryBooks,
-    component: RegisterViewComponent
+    component: RegisterView
   },
-  { redirect: true, path: '/', to: '/dashboard', navbarName: 'Redirect' }
+  { redirect: true, path: '/', to: '/dashboard', navbarName: 'Redirect' },
   {
     path: "/checker",
     sidebarName: "Checker",
