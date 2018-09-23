@@ -17,17 +17,33 @@ import Card from 'components/Card/Card.jsx';
 import CardHeader from 'components/Card/CardHeader.jsx';
 import CardIcon from 'components/Card/CardIcon.jsx';
 import CardFooter from 'components/Card/CardFooter.jsx';
+import { Redirect } from 'react-router-dom';
+import WizardView from '../Forms/WizardView';
+import CheckerView from '../Checker/CheckerView';
 
 class HomeView extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      toWizard: false
+    };
+
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {}
+  handleClick() {
+    this.setState(() => ({
+      toWizard: true,
+      goTo: 1
+    }));
+  }
 
   render() {
+    if (this.state.toWizard === true) {
+      return <Redirect to="/checker" component={CheckerView} />;
+    }
+
     const { classes } = this.props;
     return (
       <GridContainer className={classes.background}>
@@ -46,7 +62,7 @@ class HomeView extends Component {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={12} onClick={this.handleClick}>
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
@@ -62,7 +78,7 @@ class HomeView extends Component {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={12} onClick={this.handleClick}>
           <Card>
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
