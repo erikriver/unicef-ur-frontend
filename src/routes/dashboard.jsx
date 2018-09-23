@@ -32,6 +32,13 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage
   },
+  {
+    path: "/wizard",
+    sidebarName: "Captura",
+    navbarName: "Captura",
+    icon: LibraryBooks,
+    component: Wizard
+  },
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 
