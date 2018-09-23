@@ -8,8 +8,9 @@ import Notifications from "@material-ui/icons/Notifications";
 // core components/views
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
-import ApplicantsList from "../views/Applicants/ApplicantsList";
+import ApplicantsList from "../views/Applicants/ApplicantsList.jsx";
 import WizardView from "views/Forms/WizardView.jsx";
+import CheckerView from "../views/Checker/CheckerView";
 
 const dashboardRoutes = [
   {
@@ -39,10 +40,17 @@ const dashboardRoutes = [
   },
   {
     path: "/wizard",
-    sidebarName: "Captura",
-    navbarName: "Captura",
+    sidebarName: "Register",
+    navbarName: "Register",
     icon: LibraryBooks,
     component: WizardView
+  },
+  {
+    path: "/checker",
+    sidebarName: "Checker",
+    navbarName: "Checker",
+    icon: LibraryBooks,
+    component: CheckerView
   },
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
