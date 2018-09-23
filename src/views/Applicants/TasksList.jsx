@@ -23,8 +23,9 @@ import WizardView from "../Forms/WizardView";
 class TasksList extends React.Component {
 
   state = {
-    toDashboard: false,
-    checked: this.props.checkedIndexes
+    id: null,
+    toWizard: false,
+    checked: this.props.checkedIndexes || []
   };
 
   handleToggle = value => () => {
@@ -45,14 +46,17 @@ class TasksList extends React.Component {
 
   handleEdit = person => () => {
    this.setState(() => ({
-      toDashboard: true
+      toWizard: true,
+      id: person.id
     }));
   };
 
   render() {
 
-    if (this.state.toDashboard === true) {
-      return <Redirect to='/applicants/4' component={WizardView} />
+    if (this.state.toWizard === true) {
+      let {id} = this.state.id;
+
+      return <Redirect to={`/applicants/${id}`} component={WizardView} />
     }
 
     const { classes, status, tasks } = this.props;

@@ -4,10 +4,26 @@ import React from "react";
 import BugReport from "@material-ui/icons/Warning";
 import Code from "@material-ui/icons/Error";
 import Cloud from "@material-ui/icons/Event";
+import AddIcon from '@material-ui/icons/Add';
 
 // core components
 import Tabs from "components/CustomTabs/CustomTabs.jsx";
 import TasksList from "./TasksList";
+import Button from "@material-ui/core/Button/Button";
+import { withStyles } from '@material-ui/core/styles';
+import { Redirect } from "react-router-dom";
+import WizardView from "../Forms/WizardView";
+
+const styles = theme => ({
+  root: {
+    position: 'relative'
+  },
+  fab: {
+    position: 'absolute',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
+  }
+});
 
 class ApplicantsList extends React.Component {
 
@@ -17,7 +33,8 @@ class ApplicantsList extends React.Component {
     this.state = {
       data: [],
       server: [],
-      checked: []
+      checked: [],
+      toWizard: false
     };
   }
 
@@ -40,53 +57,63 @@ class ApplicantsList extends React.Component {
     this.setState({ data });
   }
 
+  handleClick = () => () => {
+    this.setState(() => ({
+      toWizard: true
+    }));
+  };
+
   render() {
+    if (this.state.toWizard === true) {
+      return <Redirect to='/wizard' component={WizardView} />
+    }
+
+    let {classes} = this.props;
 
     return (
-      <Tabs
-        title="Applicants:"
-        headerColor="primary"
-        tabs={[
-          {
-            tabName: "Pendings",
-            tabIcon: BugReport,
-            tabContent: (
-              <TasksList
-                checkedIndexes={[0, 3]}
-                tasksIndexes={[0, 1, 2, 3]}
-                status="pending"
-                tasks={this.state.data}
-              />
-            )
-          },
-          {
-            tabName: "Rejected",
-            tabIcon: Code,
-            tabContent: (
-              <TasksList
-                checkedIndexes={[0]}
-                tasksIndexes={[0, 1]}
-                status="rejected"
-                tasks={this.state.data}
-              />
-            )
-          },
-          {
-            tabName: "Accepted",
-            tabIcon: Cloud,
-            tabContent: (
-              <TasksList
-                checkedIndexes={[1]}
-                tasksIndexes={[0]}
-                status="accepted"
-                tasks={this.state.data}
-              />
-            )
-          }
-        ]}
-      />
+      <div>
+        <Tabs
+          title="Applicants:"
+          headerColor="primary"
+          tabs={[
+            {
+              tabName: "Pendings",
+              tabIcon: BugReport,
+              tabContent: (
+                <TasksList
+                  status="pending"
+                  tasks={this.state.data}
+                />
+              )
+            },
+            {
+              tabName: "Rejected",
+              tabIcon: Code,
+              tabContent: (
+                <TasksList
+                  status="rejected"
+                  tasks={this.state.data}
+                />
+              )
+            },
+            {
+              tabName: "Accepted",
+              tabIcon: Cloud,
+              tabContent: (
+                <TasksList
+                  status="accepted"
+                  tasks={this.state.data}
+                />
+              )
+            }
+          ]}
+        />
+        <Button onClick={this.handleClick()} variant="fab" color="primary" aria-label="Add" className={classes.fab}>
+          <AddIcon />
+        </Button>
+      </div>
     );
   }
 }
 
-export default ApplicantsList;
+export default withStyles(styles, { withTheme: true })(ApplicantsList);

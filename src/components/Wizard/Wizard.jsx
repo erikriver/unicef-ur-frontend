@@ -14,6 +14,7 @@ class Wizard extends React.Component {
   constructor(props) {
     super(props);
     var width;
+
     if (this.props.steps.length === 1) {
       width = "100%";
     } else {
@@ -34,9 +35,9 @@ class Wizard extends React.Component {
     this.state = {
       currentStep: 0,
       color: this.props.color,
-      nextButton: this.props.steps.length > 1 ? true : false,
+      nextButton: this.props.steps.length > 1,
       previousButton: false,
-      finishButton: this.props.steps.length === 1 ? true : false,
+      finishButton: this.props.steps.length === 1,
       width: width,
       movingTabStyle: {
         transition: "transform 0s"
@@ -65,7 +66,7 @@ class Wizard extends React.Component {
   }
 
   navigationStepChange(key) {
-    console.log(this.state.allStates);
+    // console.log(this.state.allStates);
     if (this.props.steps) {
       var validationState = true;
       if (key > this.state.currentStep) {
@@ -94,9 +95,9 @@ class Wizard extends React.Component {
       if (validationState) {
         this.setState({
           currentStep: key,
-          nextButton: this.props.steps.length > key + 1 ? true : false,
-          previousButton: key > 0 ? true : false,
-          finishButton: this.props.steps.length === key + 1 ? true : false
+          nextButton: this.props.steps.length > key + 1,
+          previousButton: key > 0,
+          finishButton: this.props.steps.length === key + 1
         });
         this.refreshAnimation(key);
       }
