@@ -47,7 +47,7 @@ class Step3 extends React.Component {
     return (
       <GridContainer justify="center">
         <GridItem xs={12} sm={12}>
-          <h4 className={classes.infoText}>Are you living in a nice area?</h4>
+          <h4 className={classes.infoText}>Please fill this information (optional)?</h4>
         </GridItem>
         <GridItem xs={12} sm={7}>
           <CustomInput

@@ -18,7 +18,7 @@ class WizardView extends React.Component {
             validate
             steps={[
               { stepName: "Basic", stepComponent: Step1, stepId: "about" },
-              { stepName: "Account", stepComponent: Step2, stepId: "account" },
+              { stepName: "Personal", stepComponent: Step2, stepId: "account" },
               { stepName: "Address", stepComponent: Step3, stepId: "address" }
             ]}
             title="Build Your Profile"
