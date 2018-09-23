@@ -56,15 +56,15 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={6} md={3}>
+          <GridItem xs={12} sm={12} md={4}>
             <Card>
               <CardHeader color="warning" stats icon>
                 <CardIcon color="warning">
-                  <Icon>content_copy</Icon>
+                  <Icon>help</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
+                <p className={classes.cardCategory}>Pending</p>
                 <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
+                  50 <small>refugees</small>
                 </h3>
               </CardHeader>
               <CardFooter stats>
@@ -73,20 +73,20 @@ class Dashboard extends React.Component {
                     <Warning />
                   </Danger>
                   <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
+                    last pending review
                   </a>
                 </div>
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
+          <GridItem xs={12} sm={12} md={4}>
             <Card>
-              <CardHeader color="success" stats icon>
-                <CardIcon color="success">
-                  <Store />
+              <CardHeader color="danger" stats icon>
+                <CardIcon color="danger">
+                  <Icon>highlight_off</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Revenue</p>
-                <h3 className={classes.cardTitle}>$34,245</h3>
+                <p className={classes.cardCategory}>Rejected</p>
+                <h3 className={classes.cardTitle}>24</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -96,36 +96,19 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
+          <GridItem xs={12} sm={12} md={4}>
             <Card>
-              <CardHeader color="danger" stats icon>
-                <CardIcon color="danger">
-                  <Icon>info_outline</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
-              </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <LocalOffer />
-                  Tracked from Github
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardHeader color="info" stats icon>
-                <CardIcon color="info">
+              <CardHeader color="success" stats icon>
+                <CardIcon color="success">
                   <Accessibility />
                 </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
+                <p className={classes.cardCategory}>Accepted</p>
+                <h3 className={classes.cardTitle}>245/35</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <Update />
-                  Just Updated
+                  <DateRange />
+                  Last 24 Hours   adults / childrens
                 </div>
               </CardFooter>
             </Card>
@@ -144,12 +127,12 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Daily Sales</h4>
+                <h4 className={classes.cardTitle}>Daily Accepted</h4>
                 <p className={classes.cardCategory}>
                   <span className={classes.successText}>
                     <ArrowUpward className={classes.upArrowCardCategory} /> 55%
                   </span>{" "}
-                  increase in today sales.
+                  increase in today.
                 </p>
               </CardBody>
               <CardFooter chart>
@@ -172,14 +155,14 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Email Subscriptions</h4>
+                <h4 className={classes.cardTitle}>Daily Applicants</h4>
                 <p className={classes.cardCategory}>
-                  Last Campaign Performance
+                  All refugees applicants by day
                 </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
+                  <AccessTime /> updated 4 minutes ago
                 </div>
               </CardFooter>
             </Card>
@@ -196,14 +179,14 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Completed Tasks</h4>
+                <h4 className={classes.cardTitle}>Rejected refugees</h4>
                 <p className={classes.cardCategory}>
-                  Last Campaign Performance
+                  Refugees rejected by day
                 </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
+                  <AccessTime /> updated 4 minutes ago
                 </div>
               </CardFooter>
             </Card>
@@ -211,63 +194,44 @@ class Dashboard extends React.Component {
         </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
-            <CustomTabs
-              title="Tasks:"
-              headerColor="primary"
-              tabs={[
-                {
-                  tabName: "Bugs",
-                  tabIcon: BugReport,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
-                    />
-                  )
-                },
-                {
-                  tabName: "Website",
-                  tabIcon: Code,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
-                  )
-                },
-                {
-                  tabName: "Server",
-                  tabIcon: Cloud,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
-                    />
-                  )
-                }
-              ]}
-            />
+            <Card>
+              <CardHeader color="primary">
+                <h4 className={classes.cardTitleWhite}>Countries host</h4>
+                <p className={classes.cardCategoryWhite}>
+                   Top countries hosts
+                </p>
+              </CardHeader>
+              <CardBody>
+                <Table
+                  tableHeaderColor="primary"
+                  tableHead={["ID", "Continet", "Refugees", "Country"]}
+                  tableData={[
+                    ["1", "America", "14,193", "USA"],
+                    ["2", "Asia", "13,829", "Mexico"],
+                    ["3", "Africa", "6,732", "Colombia"],
+                    ["4", "Asia", "1,826", "Germany"]
+                  ]}
+                />
+              </CardBody>
+            </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
             <Card>
               <CardHeader color="warning">
-                <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
+                <h4 className={classes.cardTitleWhite}>Refugees Stats</h4>
                 <p className={classes.cardCategoryWhite}>
-                  New employees on 15th September, 2016
+                  Refugees applicants 2018
                 </p>
               </CardHeader>
               <CardBody>
                 <Table
                   tableHeaderColor="warning"
-                  tableHead={["ID", "Name", "Salary", "Country"]}
+                  tableHead={["ID", "Continet", "Refugees", "Country"]}
                   tableData={[
-                    ["1", "Dakota Rice", "$36,738", "Niger"],
-                    ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                    ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                    ["4", "Philip Chaney", "$38,735", "Korea, South"]
+                    ["1", "America", "36,738", "Venezuela"],
+                    ["2", "Asia", "23,789", "Siria"],
+                    ["3", "Africa", "16,142", "Uganda"],
+                    ["4", "Asia", "8,735", "Korea North"]
                   ]}
                 />
               </CardBody>
