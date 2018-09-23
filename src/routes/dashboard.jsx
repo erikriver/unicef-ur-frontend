@@ -11,6 +11,7 @@ import NotificationsPage from "views/Notifications/Notifications.jsx";
 import ApplicantsList from "../views/Applicants/ApplicantsList.jsx";
 import WizardView from "views/Forms/WizardView.jsx";
 import CheckerView from "../views/Checker/CheckerView";
+import RegisterView from "views/Registers/index.js"
 
 const dashboardRoutes = [
   {
@@ -32,35 +33,26 @@ const dashboardRoutes = [
     component: WizardView
   },
   {
-    path: "/notifications",
-    sidebarName: "Notificaciones",
-    navbarName: "Notificaciones",
-    icon: Notifications,
-    component: NotificationsPage
-  },
-  {
     path: "/wizard",
-    sidebarName: "Captura",
-    navbarName: "Captura",
+    sidebarName: "Register",
+    navbarName: "Register",
     icon: LibraryBooks,
     component: WizardView
   },
   {
-    path: '/registers',
-    sidebarName: 'Registros',
-    navbarName: 'Registros',
+    path: '/traceroute',
+    sidebarName: 'Traceroute',
+    navbarName: 'Trace Route',
     icon: LibraryBooks,
     component: RegisterView
   },
-  { redirect: true, path: '/', to: '/dashboard', navbarName: 'Redirect' },
   {
     path: "/checker",
     sidebarName: "Checker",
     navbarName: "Checker",
     icon: LibraryBooks,
     component: CheckerView
-  },
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  }
 ];
 
 export default dashboardRoutes;

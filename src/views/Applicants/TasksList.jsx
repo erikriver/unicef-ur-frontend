@@ -53,9 +53,6 @@ class TasksList extends React.Component {
 
   render() {
     if (this.state.toWizard === true) {
-      let { id } = this.state.id;
-
-      return <Redirect to={`/applicants/${id}`} component={WizardView} />;
       let {id} = this.state;
       return <Redirect to={`/applicants/${id}`} component={WizardView} />
     }
