@@ -14,6 +14,7 @@ class Wizard extends React.Component {
   constructor(props) {
     super(props);
     var width;
+
     if (this.props.steps.length === 1) {
       width = "100%";
     } else {
@@ -34,9 +35,9 @@ class Wizard extends React.Component {
     this.state = {
       currentStep: 0,
       color: this.props.color,
-      nextButton: this.props.steps.length > 1 ? true : false,
+      nextButton: this.props.steps.length > 1,
       previousButton: false,
-      finishButton: this.props.steps.length === 1 ? true : false,
+      finishButton: this.props.steps.length === 1,
       width: width,
       movingTabStyle: {
         transition: "transform 0s"
@@ -48,20 +49,24 @@ class Wizard extends React.Component {
     this.previousButtonClick = this.previousButtonClick.bind(this);
     this.previousButtonClick = this.previousButtonClick.bind(this);
     this.finishButtonClick = this.finishButtonClick.bind(this);
-    this.updateWidth = this.updateWidth.bind(this)
+    this.updateWidth = this.updateWidth.bind(this);
   }
+
   componentDidMount() {
     this.refreshAnimation(0);
     window.addEventListener("resize", this.updateWidth);
   }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWidth);
   }
+
   updateWidth() {
     this.refreshAnimation(this.state.currentStep);
   }
+
   navigationStepChange(key) {
-    console.log(this.state.allStates);
+    // console.log(this.state.allStates);
     if (this.props.steps) {
       var validationState = true;
       if (key > this.state.currentStep) {
@@ -73,7 +78,7 @@ class Wizard extends React.Component {
                 {
                   [this.props.steps[i].stepId]: this[
                     this.props.steps[i].stepId
-                  ].sendState()
+                    ].sendState()
                 }
               ]
             });
@@ -90,14 +95,15 @@ class Wizard extends React.Component {
       if (validationState) {
         this.setState({
           currentStep: key,
-          nextButton: this.props.steps.length > key + 1 ? true : false,
-          previousButton: key > 0 ? true : false,
-          finishButton: this.props.steps.length === key + 1 ? true : false
+          nextButton: this.props.steps.length > key + 1,
+          previousButton: key > 0,
+          finishButton: this.props.steps.length === key + 1
         });
         this.refreshAnimation(key);
       }
     }
   }
+
   nextButtonClick() {
     if (
       (this.props.validate &&
@@ -105,9 +111,9 @@ class Wizard extends React.Component {
           undefined &&
           this[
             this.props.steps[this.state.currentStep].stepId
-          ].isValidated()) ||
+            ].isValidated()) ||
           this[this.props.steps[this.state.currentStep].stepId].isValidated ===
-            undefined)) ||
+          undefined)) ||
       this.props.validate === undefined
     ) {
       if (
@@ -120,7 +126,7 @@ class Wizard extends React.Component {
             {
               [this.props.steps[this.state.currentStep].stepId]: this[
                 this.props.steps[this.state.currentStep].stepId
-              ].sendState()
+                ].sendState()
             }
           ]
         });
@@ -135,6 +141,7 @@ class Wizard extends React.Component {
       this.refreshAnimation(key);
     }
   }
+
   previousButtonClick() {
     if (
       this[this.props.steps[this.state.currentStep].stepId].sendState !==
@@ -146,7 +153,7 @@ class Wizard extends React.Component {
           {
             [this.props.steps[this.state.currentStep].stepId]: this[
               this.props.steps[this.state.currentStep].stepId
-            ].sendState()
+              ].sendState()
           }
         ]
       });
@@ -162,6 +169,7 @@ class Wizard extends React.Component {
       this.refreshAnimation(key);
     }
   }
+
   finishButtonClick() {
     if (
       this.props.validate &&
@@ -169,12 +177,13 @@ class Wizard extends React.Component {
         undefined &&
         this[this.props.steps[this.state.currentStep].stepId].isValidated()) ||
         this[this.props.steps[this.state.currentStep].stepId].isValidated ===
-          undefined) &&
+        undefined) &&
       this.props.finishButtonClick !== undefined
     ) {
       this.props.finishButtonClick();
     }
   }
+
   refreshAnimation(index) {
     var total = this.props.steps.length;
     var li_width = 100 / total;
@@ -219,6 +228,7 @@ class Wizard extends React.Component {
     };
     this.setState({ movingTabStyle: movingTabStyle });
   }
+
   render() {
     const { classes, title, subtitle, color, steps } = this.props;
     return (
@@ -301,7 +311,7 @@ class Wizard extends React.Component {
                 </Button>
               ) : null}
             </div>
-            <div className={classes.clearfix} />
+            <div className={classes.clearfix}/>
           </div>
         </Card>
       </div>

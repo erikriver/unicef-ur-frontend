@@ -9,7 +9,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import ApplicantsList from "../views/Applicants/ApplicantsList";
-import Wizard from "views/Forms/Wizard.jsx";
+import WizardView from "views/Forms/WizardView.jsx";
 
 const dashboardRoutes = [
   {
@@ -27,6 +27,10 @@ const dashboardRoutes = [
     component: ApplicantsList
   },
   {
+    path: "/applicants/:id",
+    component: WizardView
+  },
+  {
     path: "/notifications",
     sidebarName: "Notificaciones",
     navbarName: "Notificaciones",
@@ -38,7 +42,7 @@ const dashboardRoutes = [
     sidebarName: "Captura",
     navbarName: "Captura",
     icon: LibraryBooks,
-    component: Wizard
+    component: WizardView
   },
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];

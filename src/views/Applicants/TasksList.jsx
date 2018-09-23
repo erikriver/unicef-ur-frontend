@@ -13,13 +13,19 @@ import TableCell from "@material-ui/core/TableCell";
 import Edit from "@material-ui/icons/Edit";
 import Close from "@material-ui/icons/Close";
 import Check from "@material-ui/icons/Check";
+
+import { Redirect } from "react-router-dom";
+
 // core components
 import tasksStyle from "assets/jss/material-dashboard-react/components/tasksStyle.jsx";
+import WizardView from "../Forms/WizardView";
 
 class TasksList extends React.Component {
 
   state = {
-    checked: this.props.checkedIndexes
+    id: null,
+    toWizard: false,
+    checked: this.props.checkedIndexes || []
   };
 
   handleToggle = value => () => {
@@ -37,7 +43,22 @@ class TasksList extends React.Component {
       checked: newChecked
     });
   };
+
+  handleEdit = person => () => {
+   this.setState(() => ({
+      toWizard: true,
+      id: person.id
+    }));
+  };
+
   render() {
+
+    if (this.state.toWizard === true) {
+      let {id} = this.state.id;
+
+      return <Redirect to={`/applicants/${id}`} component={WizardView} />
+    }
+
     const { classes, status, tasks } = this.props;
     const filtereds = tasks.filter(person => (person.status === status));
 
@@ -67,11 +88,12 @@ class TasksList extends React.Component {
                 <TableCell className={classes.tableActions}>
                   <Tooltip
                     id="tooltip-top"
-                    title="Edit Task"
+                    title="Edit"
                     placement="top"
                     classes={{ tooltip: classes.tooltip }}
                   >
                     <IconButton
+                      onClick={this.handleEdit(person)}
                       aria-label="Edit"
                       className={classes.tableActionButton}
                     >
