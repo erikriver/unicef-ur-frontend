@@ -68,9 +68,9 @@ class RegularForms extends React.Component {
           <Card>
             <CardHeader color="rose" icon>
               <CardIcon color="rose">
-                <MailOutline />
+                <LocalHospital />
               </CardIcon>
-              <h4 className={classes.cardIconTitle}>Stacked Form</h4>
+              <h4 className={classes.cardIconTitle}>Doctor Info</h4>
             </CardHeader>
             <CardBody>
               <form>
@@ -110,7 +110,7 @@ class RegularForms extends React.Component {
                     classes={{
                       label: classes.label
                     }}
-                    label="Subscribe to newsletter"
+                    label="Assign"
                   />
                 </div>
                 <Button color="rose">Submit</Button>

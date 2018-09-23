@@ -17,9 +17,9 @@ class WizardView extends React.Component {
           <Wizard
             validate
             steps={[
-              { stepName: 'Basic', stepComponent: Step1, stepId: 'about' },
-              { stepName: 'Account', stepComponent: Step2, stepId: 'account' },
-              { stepName: 'Address', stepComponent: Step3, stepId: 'address' }
+              { stepName: "Basic", stepComponent: Step1, stepId: "about" },
+              { stepName: "Personal", stepComponent: Step2, stepId: "account" },
+              { stepName: "Address", stepComponent: Step3, stepId: "address" }
             ]}
             title="Build Your Profile"
             subtitle="This information will let us know more about you."

@@ -10,62 +10,55 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Datetime from 'react-datetime';
 
 // core components
-import GridContainer from 'components/Grid/GridContainer.jsx';
-import GridItem from 'components/Grid/GridItem.jsx';
+import CustomInput from "components/CustomInput/CustomInput.jsx";
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
 
-import customSelectStyle from 'assets/jss/material-dashboard-pro-react/customSelectStyle.jsx';
-import customCheckboxRadioSwitch from 'assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx';
+import customSelectStyle from "assets/jss/material-dashboard-pro-react/customSelectStyle.jsx";
+import customCheckboxRadioSwitch from "assets/jss/material-dashboard-pro-react/customCheckboxRadioSwitch.jsx";
+import extendedFormsStyle from "assets/jss/material-dashboard-pro-react/views/extendedFormsStyle.jsx";
 
 const style = {
-  infoText: {
-    fontWeight: '300',
-    margin: '10px 0 30px',
-    textAlign: 'center'
-  },
-  inputAdornmentIcon: {
-    color: '#555'
-  },
-  choiche: {
-    textAlign: 'center',
-    cursor: 'pointer',
-    marginTop: '20px'
-  },
   ...customSelectStyle,
-  ...customCheckboxRadioSwitch
+  ...customCheckboxRadioSwitch,
+  ...extendedFormsStyle
 };
 
 class Step2 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      simpleSelect: '',
-      desgin: false,
-      code: false,
-      develop: false
-    };
   }
-  sendState() {
-    return this.state;
-  }
-  handleSimple = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
-  isValidated() {
-    return true;
-  }
+
   render() {
     const { classes } = this.props;
     return (
       <div>
-        <h4 className={classes.infoText}>What are you doing? (checkboxes)</h4>
-        <InputLabel className={classes.label}>Datetime Picker</InputLabel>
-        <br />
-        <FormControl fullWidth>
-          <Datetime inputProps={{ placeholder: 'Datetime Picker Here' }} />
-        </FormControl>
+
+      <h4 className={classes.infoText}>Extra Data</h4>
+      <GridContainer>
+          <GridItem xs={12} sm={12} md={4}>
+        
+                <InputLabel className={classes.label}>
+                  Born Date
+                </InputLabel>
+                <br />
+                <FormControl>
+                  <Datetime
+                    timeFormat={false}
+                    inputProps={{ placeholder: "Born date" }}
+                  />
+                </FormControl>
+          </GridItem>
+          <GridItem xs={12} sm={7}>
+          <CustomInput
+            labelText="Parents?"
+            id="parents"
+            formControlProps={{
+              fullWidth: true
+            }}
+          />
+        </GridItem>
+      </GridContainer>
       </div>
     );
   }
