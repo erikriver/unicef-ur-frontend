@@ -1,9 +1,9 @@
 import React from "react";
 
 // @material-ui/icons
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
+import BugReport from "@material-ui/icons/Warning";
+import Code from "@material-ui/icons/Error";
+import Cloud from "@material-ui/icons/Event";
 
 // core components
 import Tabs from "components/CustomTabs/CustomTabs.jsx";
@@ -11,14 +11,14 @@ import TasksList from "./TasksList";
 
 class ApplicantsList extends React.Component {
 
-  state = {
-    data: [],
-    server: [],
-    checked: []
-  };
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      data: [],
+      server: [],
+      checked: []
+    };
   }
 
   componentDidMount() {
@@ -41,6 +41,7 @@ class ApplicantsList extends React.Component {
   }
 
   render() {
+
     return (
       <Tabs
         title="Applicants:"
