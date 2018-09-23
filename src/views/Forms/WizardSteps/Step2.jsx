@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Checkbox from "@material-ui/core/Checkbox";
-import Datetime from "react-datetime";
+import withStyles from '@material-ui/core/styles/withStyles';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
+import Datetime from 'react-datetime';
 
 // core components
 import CustomInput from "components/CustomInput/CustomInput.jsx";
@@ -33,6 +33,7 @@ class Step2 extends React.Component {
     const { classes } = this.props;
     return (
       <div>
+
       <h4 className={classes.infoText}>Extra Data</h4>
       <GridContainer>
           <GridItem xs={12} sm={12} md={4}>

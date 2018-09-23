@@ -5,17 +5,17 @@ import {
   infoCardHeader,
   primaryCardHeader,
   roseCardHeader
-} from "assets/jss/material-dashboard-pro-react.jsx";
+} from 'assets/jss/material-dashboard-pro-react.jsx';
 
 const cardTextStyle = {
   cardText: {
-    float: "none",
-    display: "inline-block",
-    marginRight: "0",
-    borderRadius: "3px",
-    backgroundColor: "#999999",
-    padding: "15px",
-    marginTop: "-20px"
+    float: 'none',
+    display: 'inline-block',
+    marginRight: '0',
+    borderRadius: '3px',
+    backgroundColor: '#999999',
+    padding: '15px',
+    marginTop: '-20px'
   },
   warningCardHeader,
   successCardHeader,
