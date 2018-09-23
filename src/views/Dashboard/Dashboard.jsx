@@ -1,44 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 // react plugin for creating charts
-import ChartistGraph from "react-chartist";
+import ChartistGraph from 'react-chartist';
 // @material-ui/core
-import withStyles from "@material-ui/core/styles/withStyles";
-import Icon from "@material-ui/core/Icon";
+import withStyles from '@material-ui/core/styles/withStyles';
+import Icon from '@material-ui/core/Icon';
 // @material-ui/icons
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
+import Warning from '@material-ui/icons/Warning';
+import DateRange from '@material-ui/icons/DateRange';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import AccessTime from '@material-ui/icons/AccessTime';
+import Accessibility from '@material-ui/icons/Accessibility';
 // core components
-import GridItem from "components/Grid/GridItem.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import Table from "components/Table/Table.jsx";
-import Tasks from "components/Tasks/Tasks.jsx";
-import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
-import Danger from "components/Typography/Danger.jsx";
-import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardIcon from "components/Card/CardIcon.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
-
-import { bugs, website, server } from "variables/general.jsx";
+import GridItem from 'components/Grid/GridItem.jsx';
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import Table from 'components/Table/Table.jsx';
+import Danger from 'components/Typography/Danger.jsx';
+import Card from 'components/Card/Card.jsx';
+import CardHeader from 'components/Card/CardHeader.jsx';
+import CardIcon from 'components/Card/CardIcon.jsx';
+import CardBody from 'components/Card/CardBody.jsx';
+import CardFooter from 'components/Card/CardFooter.jsx';
 
 import {
   dailySalesChart,
   emailsSubscriptionChart,
   completedTasksChart
-} from "variables/charts.jsx";
+} from 'variables/charts.jsx';
 
-import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
+import dashboardStyle from 'assets/jss/material-dashboard-react/views/dashboardStyle.jsx';
 
 class Dashboard extends React.Component {
   state = {
@@ -108,7 +98,7 @@ class Dashboard extends React.Component {
               <CardFooter stats>
                 <div className={classes.stats}>
                   <DateRange />
-                  Last 24 Hours   adults / childrens
+                  Last 24 Hours adults / childrens
                 </div>
               </CardFooter>
             </Card>
@@ -131,7 +121,7 @@ class Dashboard extends React.Component {
                 <p className={classes.cardCategory}>
                   <span className={classes.successText}>
                     <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                  </span>{" "}
+                  </span>{' '}
                   increase in today.
                 </p>
               </CardBody>
@@ -180,9 +170,7 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardBody>
                 <h4 className={classes.cardTitle}>Rejected refugees</h4>
-                <p className={classes.cardCategory}>
-                  Refugees rejected by day
-                </p>
+                <p className={classes.cardCategory}>Refugees rejected by day</p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
@@ -197,19 +185,17 @@ class Dashboard extends React.Component {
             <Card>
               <CardHeader color="primary">
                 <h4 className={classes.cardTitleWhite}>Countries host</h4>
-                <p className={classes.cardCategoryWhite}>
-                   Top countries hosts
-                </p>
+                <p className={classes.cardCategoryWhite}>Top countries hosts</p>
               </CardHeader>
               <CardBody>
                 <Table
                   tableHeaderColor="primary"
-                  tableHead={["ID", "Continet", "Refugees", "Country"]}
+                  tableHead={['ID', 'Continet', 'Refugees', 'Country']}
                   tableData={[
-                    ["1", "America", "14,193", "USA"],
-                    ["2", "Asia", "13,829", "Mexico"],
-                    ["3", "Africa", "6,732", "Colombia"],
-                    ["4", "Asia", "1,826", "Germany"]
+                    ['1', 'America', '14,193', 'USA'],
+                    ['2', 'Asia', '13,829', 'Mexico'],
+                    ['3', 'Africa', '6,732', 'Colombia'],
+                    ['4', 'Asia', '1,826', 'Germany']
                   ]}
                 />
               </CardBody>
@@ -226,12 +212,12 @@ class Dashboard extends React.Component {
               <CardBody>
                 <Table
                   tableHeaderColor="warning"
-                  tableHead={["ID", "Continet", "Refugees", "Country"]}
+                  tableHead={['ID', 'Continet', 'Refugees', 'Country']}
                   tableData={[
-                    ["1", "America", "36,738", "Venezuela"],
-                    ["2", "Asia", "23,789", "Siria"],
-                    ["3", "Africa", "16,142", "Uganda"],
-                    ["4", "Asia", "8,735", "Korea North"]
+                    ['1', 'America', '36,738', 'Venezuela'],
+                    ['2', 'Asia', '23,789', 'Siria'],
+                    ['3', 'Africa', '16,142', 'Uganda'],
+                    ['4', 'Asia', '8,735', 'Korea North']
                   ]}
                 />
               </CardBody>

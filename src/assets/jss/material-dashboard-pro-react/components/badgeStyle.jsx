@@ -10,20 +10,20 @@ import {
   infoColor,
   roseColor,
   grayColor
-} from "assets/jss/material-dashboard-pro-react.jsx";
+} from 'assets/jss/material-dashboard-pro-react.jsx';
 
 const badgeStyle = {
   badge: {
-    borderRadius: "12px",
-    padding: "5px 12px",
-    textTransform: "uppercase",
-    fontSize: "10px",
-    fontWeight: "700",
-    lineHeight: "1",
-    color: "#fff",
-    textAlign: "center",
-    verticalAlign: "baseline",
-    display: "inline-block"
+    borderRadius: '12px',
+    padding: '5px 12px',
+    textTransform: 'uppercase',
+    fontSize: '10px',
+    fontWeight: '700',
+    lineHeight: '1',
+    color: '#fff',
+    textAlign: 'center',
+    verticalAlign: 'baseline',
+    display: 'inline-block'
   },
   primary: {
     backgroundColor: primaryColor

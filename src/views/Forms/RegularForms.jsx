@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react';
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Radio from "@material-ui/core/Radio";
-import Checkbox from "@material-ui/core/Checkbox";
+import withStyles from '@material-ui/core/styles/withStyles';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Radio from '@material-ui/core/Radio';
+import Checkbox from '@material-ui/core/Checkbox';
 
 // @material-ui/icons
-import MailOutline from "@material-ui/icons/MailOutline";
-import Check from "@material-ui/icons/Check";
-import Clear from "@material-ui/icons/Clear";
-import Contacts from "@material-ui/icons/Contacts";
-import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
+import MailOutline from '@material-ui/icons/MailOutline';
+import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
+import Contacts from '@material-ui/icons/Contacts';
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord';
 
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardText from "components/Card/CardText.jsx";
-import CardIcon from "components/Card/CardIcon.jsx";
-import CardBody from "components/Card/CardBody.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import GridItem from 'components/Grid/GridItem.jsx';
+import CustomInput from 'components/CustomInput/CustomInput.jsx';
+import Button from 'components/CustomButtons/Button.jsx';
+import Card from 'components/Card/Card.jsx';
+import CardHeader from 'components/Card/CardHeader.jsx';
+import CardText from 'components/Card/CardText.jsx';
+import CardIcon from 'components/Card/CardIcon.jsx';
+import CardBody from 'components/Card/CardBody.jsx';
 
-import regularFormsStyle from "assets/jss/material-dashboard-pro-react/views/regularFormsStyle";
+import regularFormsStyle from 'assets/jss/material-dashboard-pro-react/views/regularFormsStyle';
 
 class RegularForms extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class RegularForms extends React.Component {
     this.state = {
       checked: [24, 22],
       selectedValue: null,
-      selectedEnabled: "b"
+      selectedEnabled: 'b'
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeEnabled = this.handleChangeEnabled.bind(this);
@@ -81,7 +81,7 @@ class RegularForms extends React.Component {
                     fullWidth: true
                   }}
                   inputProps={{
-                    type: "email"
+                    type: 'email'
                   }}
                 />
                 <CustomInput
@@ -91,7 +91,7 @@ class RegularForms extends React.Component {
                     fullWidth: true
                   }}
                   inputProps={{
-                    type: "password"
+                    type: 'password'
                   }}
                 />
                 <div className={classes.checkboxAndRadio}>
@@ -141,7 +141,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "email"
+                        type: 'email'
                       }}
                     />
                   </GridItem>
@@ -159,7 +159,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "password"
+                        type: 'password'
                       }}
                     />
                   </GridItem>
@@ -220,7 +220,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "text"
+                        type: 'text'
                       }}
                       helpText="A block of help text that breaks onto a new line."
                     />
@@ -239,7 +239,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "password"
+                        type: 'password'
                       }}
                     />
                   </GridItem>
@@ -257,7 +257,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        placeholder: "placeholder"
+                        placeholder: 'placeholder'
                       }}
                     />
                   </GridItem>
@@ -275,7 +275,7 @@ class RegularForms extends React.Component {
                         fullWidth: true
                       }}
                       inputProps={{
-                        placeholder: "Disabled",
+                        placeholder: 'Disabled',
                         disabled: true
                       }}
                     />
@@ -300,7 +300,7 @@ class RegularForms extends React.Component {
                     <FormLabel
                       className={
                         classes.labelHorizontal +
-                        " " +
+                        ' ' +
                         classes.labelHorizontalRadioCheckbox
                       }
                     >
@@ -311,7 +311,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -338,7 +338,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -365,14 +365,14 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
                       <FormControlLabel
                         control={
                           <Radio
-                            checked={this.state.selectedValue === "a"}
+                            checked={this.state.selectedValue === 'a'}
                             onChange={this.handleChange}
                             value="a"
                             name="radio button demo"
@@ -401,14 +401,14 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
                       <FormControlLabel
                         control={
                           <Radio
-                            checked={this.state.selectedValue === "b"}
+                            checked={this.state.selectedValue === 'b'}
                             onChange={this.handleChange}
                             value="b"
                             name="radio button demo"
@@ -441,7 +441,7 @@ class RegularForms extends React.Component {
                     <FormLabel
                       className={
                         classes.labelHorizontal +
-                        " " +
+                        ' ' +
                         classes.labelHorizontalRadioCheckbox
                       }
                     >
@@ -528,7 +528,7 @@ class RegularForms extends React.Component {
                     <FormLabel
                       className={
                         classes.labelHorizontal +
-                        " " +
+                        ' ' +
                         classes.labelHorizontalRadioCheckbox
                       }
                     >
@@ -539,7 +539,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -566,7 +566,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -598,7 +598,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -626,7 +626,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -661,14 +661,14 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
                       <FormControlLabel
                         control={
                           <Radio
-                            checked={this.state.selectedEnabled === "a"}
+                            checked={this.state.selectedEnabled === 'a'}
                             onChange={this.handleChangeEnabled}
                             value="a"
                             name="radio button enabled"
@@ -697,14 +697,14 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
                       <FormControlLabel
                         control={
                           <Radio
-                            checked={this.state.selectedEnabled === "b"}
+                            checked={this.state.selectedEnabled === 'b'}
                             onChange={this.handleChangeEnabled}
                             value="b"
                             name="radio button enabled"
@@ -733,7 +733,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -770,7 +770,7 @@ class RegularForms extends React.Component {
                     <div
                       className={
                         classes.checkboxAndRadio +
-                        " " +
+                        ' ' +
                         classes.checkboxAndRadioHorizontal
                       }
                     >
@@ -879,7 +879,7 @@ class RegularForms extends React.Component {
                             fullWidth: true
                           }}
                           inputProps={{
-                            placeholder: "md={3}"
+                            placeholder: 'md={3}'
                           }}
                         />
                       </GridItem>
@@ -890,7 +890,7 @@ class RegularForms extends React.Component {
                             fullWidth: true
                           }}
                           inputProps={{
-                            placeholder: "md={4}"
+                            placeholder: 'md={4}'
                           }}
                         />
                       </GridItem>
@@ -901,7 +901,7 @@ class RegularForms extends React.Component {
                             fullWidth: true
                           }}
                           inputProps={{
-                            placeholder: "md={5}"
+                            placeholder: 'md={5}'
                           }}
                         />
                       </GridItem>
