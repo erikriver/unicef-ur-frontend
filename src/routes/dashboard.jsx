@@ -40,11 +40,19 @@ const dashboardRoutes = [
   },
   {
     path: "/wizard",
-    sidebarName: "Register",
-    navbarName: "Register",
+    sidebarName: "Captura",
+    navbarName: "Captura",
     icon: LibraryBooks,
     component: WizardView
   },
+  {
+    path: '/registers',
+    sidebarName: 'Registros',
+    navbarName: 'Registros',
+    icon: LibraryBooks,
+    component: RegisterViewComponent
+  },
+  { redirect: true, path: '/', to: '/dashboard', navbarName: 'Redirect' }
   {
     path: "/checker",
     sidebarName: "Checker",

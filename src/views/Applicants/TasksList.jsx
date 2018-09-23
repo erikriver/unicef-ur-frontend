@@ -23,7 +23,7 @@ import WizardView from "../Forms/WizardView";
 class TasksList extends React.Component {
 
   state = {
-    id: 0,
+    id: null,
     toWizard: false,
     checked: this.props.checkedIndexes || []
   };
@@ -45,84 +45,93 @@ class TasksList extends React.Component {
   };
 
   handleEdit = person => () => {
-   this.setState({
-     toWizard: true,
-     id: person.id
-   });
+    this.setState(() => ({
+      toWizard: true,
+      id: person.id
+    }));
   };
 
   render() {
     if (this.state.toWizard === true) {
+      let { id } = this.state.id;
+
+      return <Redirect to={`/applicants/${id}`} component={WizardView} />;
       let {id} = this.state;
       return <Redirect to={`/applicants/${id}`} component={WizardView} />
     }
 
     const { classes, status, tasks } = this.props;
-    const filtereds = tasks.filter(person => (person.status === status));
+    const filtereds = tasks.filter(person => person.status === status);
 
     return (
       <Table className={classes.table}>
         <TableBody>
-          {
-            filtereds.map(person => (
-              <TableRow key={person.id} className={classes.tableRow}>
-                <TableCell className={classes.tableCell}>
-                  <Checkbox
-                    checked={this.state.checked.indexOf(person.id) !== -1}
-                    tabIndex={-1}
-                    onClick={this.handleToggle(person.id)}
-                    checkedIcon={<Check className={classes.checkedIcon} />}
-                    icon={<Check className={classes.uncheckedIcon} />}
-                    classes={{
-                      checked: classes.checked,
-                      root: classes.root
-                    }}
-                  />
-                </TableCell>
-                <TableCell className={classes.tableCell}>{person.firstname}</TableCell>
-                <TableCell className={classes.tableCell}>{person.lastname}</TableCell>
-                <TableCell className={classes.tableCell}>{person.country}</TableCell>
-                <TableCell className={classes.tableCell}>{person.status}</TableCell>
-                <TableCell className={classes.tableActions}>
-                  <Tooltip
-                    id="tooltip-top"
-                    title="Edit"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
+          {filtereds.map(person => (
+            <TableRow key={person.id} className={classes.tableRow}>
+              <TableCell className={classes.tableCell}>
+                <Checkbox
+                  checked={this.state.checked.indexOf(person.id) !== -1}
+                  tabIndex={-1}
+                  onClick={this.handleToggle(person.id)}
+                  checkedIcon={<Check className={classes.checkedIcon} />}
+                  icon={<Check className={classes.uncheckedIcon} />}
+                  classes={{
+                    checked: classes.checked,
+                    root: classes.root
+                  }}
+                />
+              </TableCell>
+              <TableCell className={classes.tableCell}>
+                {person.firstname}
+              </TableCell>
+              <TableCell className={classes.tableCell}>
+                {person.lastname}
+              </TableCell>
+              <TableCell className={classes.tableCell}>
+                {person.country}
+              </TableCell>
+              <TableCell className={classes.tableCell}>
+                {person.status}
+              </TableCell>
+              <TableCell className={classes.tableActions}>
+                <Tooltip
+                  id="tooltip-top"
+                  title="Edit"
+                  placement="top"
+                  classes={{ tooltip: classes.tooltip }}
+                >
+                  <IconButton
+                    onClick={this.handleEdit(person)}
+                    aria-label="Edit"
+                    className={classes.tableActionButton}
                   >
-                    <IconButton
-                      onClick={this.handleEdit(person)}
-                      aria-label="Edit"
-                      className={classes.tableActionButton}
-                    >
-                      <Edit
-                        className={
-                          classes.tableActionButtonIcon + " " + classes.edit
-                        }
-                      />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip
-                    id="tooltip-top-start"
-                    title="Remove"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
+                    <Edit
+                      className={
+                        classes.tableActionButtonIcon + ' ' + classes.edit
+                      }
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip
+                  id="tooltip-top-start"
+                  title="Remove"
+                  placement="top"
+                  classes={{ tooltip: classes.tooltip }}
+                >
+                  <IconButton
+                    aria-label="Close"
+                    className={classes.tableActionButton}
                   >
-                    <IconButton
-                      aria-label="Close"
-                      className={classes.tableActionButton}
-                    >
-                      <Close
-                        className={
-                          classes.tableActionButtonIcon + " " + classes.close
-                        }
-                      />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
-              </TableRow>
-            ))
-          }
+                    <Close
+                      className={
+                        classes.tableActionButtonIcon + ' ' + classes.close
+                      }
+                    />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     );
@@ -130,7 +139,7 @@ class TasksList extends React.Component {
 }
 
 TasksList.propTypes = {
-  status:  PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
   tasksIndexes: PropTypes.arrayOf(PropTypes.number),
   tasks: PropTypes.arrayOf(Object).isRequired
