@@ -30,9 +30,9 @@ const dashboardRoutes = [
     component: ApplicantsList
   },
   {
-    path: '/home',
-    sidebarName: 'Home',
-    navbarName: 'Home',
+    path: '/query',
+    sidebarName: 'Query',
+    navbarName: 'Query',
     icon: LibraryBooks,
     component: HomeView
   },
